@@ -1,0 +1,50 @@
+用于调试指令
+
+packe 已部署训练：
+python main.py --setting 2 --custom packe_discrete  --drl_method acktr --preview 1 --select 1 --internal_node_holder 150 --leaf_node_holder 150 --env_version 3 --device 0 --item_size_set discrete --container_size 10,10,10 --training_without_evaluate --distribution discrete --model_architecture PackE --drl_method a2c --num_processes 16
+python main.py --setting 2 --custom packe_real_opai --drl_method acktr --preview 1 --select 1 --internal_node_holder 150 --leaf_node_holder 150 --env_version 3 --device 0 --item_size_set discrete --container_size 250,120,100 --training_without_evaluate --distribution real_opai --model_architecture PackE --drl_method a2c --num_processes 16
+now:
+python main.py --setting 2 --custom packe_pg --drl_method acktr --preview 1 --select 1 --internal_node_holder 150 --leaf_node_holder 150 --env_version 3 --device 0 --item_size_set discrete --training_without_evaluate --distribution pg --model_architecture PackE --drl_method a2c --num_processes 16 --load_dataset --dataset_path data/time_series/pg.xlsx
+python main.py --setting 2 --custom packe_deli --drl_method acktr --preview 1 --select 1 --internal_node_holder 150 --leaf_node_holder 150 --env_version 3 --device 0 --item_size_set discrete --training_without_evaluate --distribution deli --model_architecture PackE --drl_method a2c --num_processes 16 --load_dataset --dataset_path data/occupancy/deli.xlsx
+python main.py --setting 2 --custom packe_opai --drl_method acktr --preview 1 --select 1 --internal_node_holder 150 --leaf_node_holder 150 --env_version 3 --device 0 --item_size_set discrete --training_without_evaluate --distribution opai --model_architecture PackE --drl_method a2c --num_processes 16 --load_dataset --dataset_path data/flat_long/opai.txt
+discrete: 0.6, 原文为0.6    pg: 0.4    deli: 0.35    opai: 0.35
+
+
+CDRL 已调试完成：
+python main.py --setting 2 --custom CDRL_discrete  --drl_method acktr --preview 1 --select 1 --internal_node_holder 150 --leaf_node_holder 150 --env_version 3 --device 0 --item_size_set discrete --container_size 10,10,10 --training_without_evaluate --distribution discrete --model_architecture CDRL --num_processes 16
+python main.py --setting 2 --custom CDRL_real_opai  --drl_method acktr --preview 1 --select 1 --internal_node_holder 150 --leaf_node_holder 150 --env_version 3 --device 0 --item_size_set discrete --container_size 250,120,100 --training_without_evaluate --distribution real_opai --model_architecture CDRL  --num_processes 16
+now:
+python main.py --setting 2 --custom CDRL_pg  --drl_method acktr --preview 1 --select 1 --internal_node_holder 150 --leaf_node_holder 150 --env_version 3 --device 0 --item_size_set discrete --training_without_evaluate --distribution pg --model_architecture CDRL  --num_processes 16 --load_dataset --dataset_path data/time_series/pg.xlsx
+python main.py --setting 2 --custom CDRL_deli  --drl_method acktr --preview 1 --select 1 --internal_node_holder 150 --leaf_node_holder 150 --env_version 3 --device 0 --item_size_set discrete --training_without_evaluate --distribution deli --model_architecture CDRL  --num_processes 16 --load_dataset --dataset_path data/occupancy/deli.xlsx
+python main.py --setting 2 --custom CDRL_opai  --drl_method acktr --preview 1 --select 1 --internal_node_holder 150 --leaf_node_holder 150 --env_version 3 --device 0 --item_size_set discrete --training_without_evaluate --distribution opai --model_architecture CDRL  --num_processes 16 --load_dataset --dataset_path data/flat_long/opai.txt
+discrete: 0.65    pg: 0.3    deli: 0.5    opai: 0.4
+
+
+
+RCQL由另外的代码实现, 其论文结果为 discrete: 0.46
+; RCQL 已调试完成, reinforce 的实现可能有问题, 先换成 A2C 试一下效果：
+; python main.py --setting 2 --custom RCQL_discrete   --drl_method acktr --preview 1 --select 1 --internal_node_holder 150 --leaf_node_holder 150 --env_version 3 --device 0 --item_size_set discrete --container_size 10,10,10    --training_without_evaluate --distribution discrete --model_architecture RCQL --drl_method a2c --num_processes 16
+; python main.py --setting 2 --custom RCQL_real_opai  --drl_method acktr --preview 1 --select 1 --internal_node_holder 150 --leaf_node_holder 150 --env_version 3 --device 0 --item_size_set discrete --container_size 250,120,100 --training_without_evaluate --distribution real_opai --model_architecture RCQL --drl_method a2c --num_processes 16
+; now:
+; python main.py --setting 2 --custom RCQL_pg    --drl_method acktr --preview 1 --select 1 --internal_node_holder 150 --leaf_node_holder 150 --env_version 3 --device 0 --item_size_set discrete --training_without_evaluate --distribution pg --model_architecture RCQL --drl_method a2c  --num_processes 16 --load_dataset --dataset_path data/time_series/pg.xlsx
+; python main.py --setting 2 --custom RCQL_deli  --drl_method acktr --preview 1 --select 1 --internal_node_holder 150 --leaf_node_holder 150 --env_version 3 --device 0 --item_size_set discrete --training_without_evaluate --distribution deli --model_architecture RCQL --drl_method a2c  --num_processes 16 --load_dataset --dataset_path data/occupancy/deli.xlsx
+; python main.py --setting 2 --custom RCQL_opai  --drl_method acktr --preview 1 --select 1 --internal_node_holder 150 --leaf_node_holder 150 --env_version 3 --device 0 --item_size_set discrete --training_without_evaluate --distribution opai --model_architecture RCQL --drl_method a2c  --num_processes 16 --load_dataset --dataset_path data/flat_long/opai.txt
+; 在pg数据集上训练效果并不好, 初始ratio只有0.01左右, 其余两个数据集初始ratio为0.2左右
+
+
+Attend2Pack 已调试完成：
+python main.py --setting 2 --custom Attend2Pack_discrete_a2c   --drl_method acktr --preview 1 --select 1 --internal_node_holder 150 --leaf_node_holder 150 --env_version 3 --device 0 --item_size_set discrete --container_size 10,10,10    --training_without_evaluate --distribution discrete --model_architecture Attend2Pack --drl_method a2c --num_processes 16
+python main.py --setting 2 --custom Attend2Pack_real_opai  --drl_method acktr --preview 1 --select 1 --internal_node_holder 300 --leaf_node_holder 150 --env_version 3 --device 0 --item_size_set discrete --container_size 250,120,100 --training_without_evaluate --distribution real_opai --model_architecture Attend2Pack --drl_method a2c --num_processes 16
+now:
+python main.py --setting 2 --custom Attend2Pack_pg    --drl_method acktr --preview 1 --select 1 --internal_node_holder 300 --leaf_node_holder 150 --env_version 3 --device 0 --item_size_set discrete --training_without_evaluate --distribution pg --model_architecture Attend2Pack --drl_method a2c  --num_processes 16 --load_dataset --dataset_path data/time_series/pg.xlsx
+python main.py --setting 2 --custom Attend2Pack_deli  --drl_method acktr --preview 1 --select 1 --internal_node_holder 300 --leaf_node_holder 150 --env_version 3 --device 0 --item_size_set discrete --training_without_evaluate --distribution deli --model_architecture Attend2Pack --drl_method a2c  --num_processes 16 --load_dataset --dataset_path data/occupancy/deli.xlsx
+python main.py --setting 2 --custom Attend2Pack_opai  --drl_method acktr --preview 1 --select 1 --internal_node_holder 300 --leaf_node_holder 150 --env_version 3 --device 0 --item_size_set discrete --training_without_evaluate --distribution opai --model_architecture Attend2Pack --drl_method a2c  --num_processes 16 --load_dataset --dataset_path data/flat_long/opai.txt
+discrete: 0.4, 原文为0.7   pg: 0.2   deli: 0.15   opai: 0.2
+
+
+PackE 稳定性检测有自己的方法, 既然这样, 训练的时候大家各自用各自的算法, 测试的时候用 issac 并行检测就好了：
+setting 1 就是训练测试的时候什么约束都不加
+setting 2 就是训练的时候加自定义约束, 测试的时候用 issac 并行检测, 放置比较稳定的
+setting 3 就是训练的时候, 大家都加上robot约束, 然后测试的时候用 issac 并行检测
+
+RCQL 的算法里面, 是没有提到稳定性检测的,  Attend2Pack 也没有
