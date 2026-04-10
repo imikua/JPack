@@ -1,0 +1,14 @@
+cff-version: 1.2.0
+message: "If you use JPack, please cite this repository using the metadata from this file."
+title: "JPack"
+type: software
+authors:
+  - name: "JPack Team"
+contributors:
+  - name: "Institute of AI For Industries, Chinese Academy of Sciences"
+  - name: "Shenzhen University"
+  - name: "National University of Defense Technology"
+  - name: "Wuhan University"
+  - name: "China Post Technology"
+  - name: "JD Technology"
+  - name: "SF Technology"
