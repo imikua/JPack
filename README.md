@@ -193,8 +193,17 @@ If you use JPack in your research, please cite both the RoboBPP benchmark and th
 
 ## Acknowledgements
 
-This project is built on top of our team's previously proposed **RoboBPP** benchmark and reconstructs the core implementations of several representative online packing methods. We would like to thank:
+This project is built on top of our team's previously proposed **RoboBPP** benchmark and reconstructs the core implementations of several representative online packing methods. It is contributed to by members of a joint team from:
 
-- the authors and open-source contributors of the `RoboBPP` benchmark
-- the original authors of `PCT`, `AR2L`, `TAPNet++`, and related methods
+- Institute of AI For Industries, Chinese Academy of Sciences
+- Shenzhen University
+- National University of Defense Technology
+- Wuhan University
+- China Post Technology
+- JD Technology
+- SF Technology
+
+We would also like to thank:
+
+- the authors of `RoboBPP`, `PCT`, `AR2L`, `TAPNet++`, and related works
 - the `Jittor` framework for supporting efficient reconstruction and deployment
