@@ -193,7 +193,7 @@ If you use JPack in your research, please cite both the RoboBPP benchmark and th
 
 ## Acknowledgements
 
-This project is built on top of our team's previously proposed **RoboBPP** benchmark and reconstructs the core implementations of several representative online packing methods. It is contributed to by members of a joint team from:
+This project is built on top of our team's previously proposed **RoboBPP** benchmark and reconstructs the core implementations of several representative online packing methods. It is contributed by members of a joint team from:
 
 - Institute of AI For Industries, Chinese Academy of Sciences
 - Shenzhen University
